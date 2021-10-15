@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
-class location extends StatefulWidget {
-  const location({Key? key}) : super(key: key);
+class Location extends StatefulWidget {
+  const Location({Key? key}) : super(key: key);
 
   @override
-  _locationState createState() => _locationState();
+  _LocationState createState() => _LocationState();
 }
 
-class _locationState extends State<location> {
+class _LocationState extends State<Location> {
   dynamic latitude = '';
   dynamic longitude = '';
 

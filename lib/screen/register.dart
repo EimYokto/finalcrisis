@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:finalcrisis/backend/database.dart';
 import 'package:finalcrisis/config/constant.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -28,20 +29,19 @@ class _RegisterState extends State<Register> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(),
-                  Images(),
-                  SizedBox(),
-                  Texts(),
+                  sizedBox(),
+                  images(),
+                  sizedBox(),
+                  texts(),
                   txtName(),
                   //txtSurname(),
                   txtEmail(),
                   txtPassword(),
-                  SizedBox(),
+                  sizedBox(),
                   btnSubmit(),
-                  SizedBox(),
-                  SizedBox(),
-                  SizedBox(),
-                  SizedBox(),
+                  sizedBox(),
+                  sizedBox(),
+                  sizedBox(),
                 ],
               ),
             ),
@@ -51,7 +51,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget Images() {
+  Widget images() {
     return Container(
       child: Image.asset(
         "asset/images/logo.png",
@@ -61,7 +61,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget Texts() {
+  Widget texts() {
     return Container(
       child: Text(
         'Smart Heal',
@@ -88,7 +88,7 @@ class _RegisterState extends State<Register> {
           filled: true,
           fillColor: Color_Grey[200],
           border: OutlineInputBorder(),
-          prefixIcon: Icon(Icons.supervised_user_circle, color: pColor),
+          prefixIcon: Icon(Icons.account_circle, color: pColor),
         ),
         validator: (val) {
           if (val!.length < 6) {
@@ -184,7 +184,7 @@ class _RegisterState extends State<Register> {
     );
   }
 
-  Widget SizedBox() {
+  Widget sizedBox() {
     return Container(
       child: Text(
         '        ',
@@ -195,24 +195,26 @@ class _RegisterState extends State<Register> {
   Widget btnSubmit() {
     return Container(
       width: 400 * 0.8,
-      child: ElevatedButton(
+      child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
             textStyle: TextStyle(
               fontSize: sFont,
             ),
-            primary: sColor,
-            padding: EdgeInsets.all(20.0),
+            primary: pColor,
+            onPrimary: Color_white,
+            padding: EdgeInsets.all(15.0),
             shape: StadiumBorder()),
-        child: Text('apply'),
+        icon: FaIcon(Icons.save_alt, color: Color_white),
+        label: Text('  apply     '),
         onPressed: () {
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
             var local = LocalDB();
             local.Register(
-              name,
-              surname,
-              email, /*password*/
-            );
+                name,
+                /*surname,*/
+                email,
+                password);
             Navigator.pushNamed(context, 'index');
           }
         },

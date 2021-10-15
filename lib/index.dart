@@ -1,7 +1,10 @@
+import 'package:finalcrisis/provider/google_sing_in.dart';
 import 'package:flutter/material.dart';
 import 'package:finalcrisis/config/constant.dart';
 import 'package:finalcrisis/backend/database.dart';
 import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -111,7 +114,7 @@ class _IndexState extends State<Index> {
                               fontSize: sFont,
                             ),
                             primary: pColor,
-                            padding: EdgeInsets.all(20.0),
+                            padding: EdgeInsets.all(15.0),
                             shape: StadiumBorder()),
                         child: Text('Login'),
                         onPressed: () {
@@ -146,18 +149,48 @@ class _IndexState extends State<Index> {
                     ),
                     Container(
                       width: size.width * 0.8,
-                      child: ElevatedButton(
+                      child: ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
                               textStyle: TextStyle(
                                 fontSize: sFont,
                               ),
                               primary: pColor,
-                              padding: EdgeInsets.all(20.0),
+                              padding: EdgeInsets.all(15.0),
                               shape: StadiumBorder()),
-                          child: Text('SIGNUP'),
+                          icon: FaIcon(FontAwesomeIcons.sign),
+                          label: Text('   SIGNUP   '),
                           onPressed: () {
                             print("สมัครสมาชิก");
                             Navigator.pushNamed(context, 'register');
+                          }),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.04,
+                    ),
+                    SizedBox(
+                      height: size.height * 0.04,
+                    ),
+                    Container(
+                      width: size.width * 0.8,
+                      child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                              textStyle: TextStyle(
+                                fontSize: sFont,
+                              ),
+                              primary: Color_white,
+                              onPrimary: Colors.red,
+                              padding: EdgeInsets.all(15.0),
+                              shape: StadiumBorder()),
+                          icon: FaIcon(FontAwesomeIcons.google,
+                              color: Colors.red),
+                          label: Text('  google   '),
+                          onPressed: () {
+                            print("google");
+                            final provider = Provider.of<GoogleSignInProvider>(
+                                context,
+                                listen: false);
+                            provider.googleLogin();
+                            //Navigator.pushNamed(context, 'dashboard');
                           }),
                     ),
                   ],

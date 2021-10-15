@@ -8,18 +8,17 @@ class Images extends StatefulWidget {
 
   @override
   _ImagesState createState() => _ImagesState();
-
-  static file(file) {}
 }
 
 class _ImagesState extends State<Images> {
-  var file;
+  dynamic file;
 
   Future<void> openCamera() async {
     var picker = ImagePicker();
-    var phone = await picker.pickImage(source: ImageSource.camera);
+    var photo = await picker.pickImage(source: ImageSource.camera);
+
     setState(() {
-      file = File(phone!.path);
+      file = File(photo!.path);
     });
 
     print(file);
@@ -29,16 +28,17 @@ class _ImagesState extends State<Images> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('image'),
+        title: Text('Image'),
       ),
       body: Center(
-        child: file == null ? Text('Select image') : Images.file(file),
+        child: file == null ? Text('Select Image') : Image.file(file),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('open camera');
           openCamera();
         },
+        child: Icon(Icons.camera),
       ),
     );
   }
