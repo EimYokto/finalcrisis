@@ -17,7 +17,7 @@ class LocalDB {
     return dB;
   }
 
-  Future<void> Register(name, surname, email, password) async {
+  Future<void> Register(name, /*surname,*/ email, password) async {
     // print("$name $surname $email $password");
 
     var dB = await this.ConnectDB();
@@ -25,7 +25,7 @@ class LocalDB {
 
     var data = await store.add(dB, {
       'name': name,
-      'surname': surname,
+      //'surname': surname,
       'email': email,
       'password': password,
     }).then((value) {

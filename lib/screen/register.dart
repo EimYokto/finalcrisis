@@ -28,14 +28,19 @@ class _RegisterState extends State<Register> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(),
                   Images(),
+                  SizedBox(),
                   Texts(),
                   txtName(),
-                  txtSurname(),
+                  //txtSurname(),
                   txtEmail(),
                   txtPassword(),
                   SizedBox(),
                   btnSubmit(),
+                  SizedBox(),
+                  SizedBox(),
+                  SizedBox(),
                   SizedBox(),
                 ],
               ),
@@ -203,7 +208,11 @@ class _RegisterState extends State<Register> {
           if (formkey.currentState!.validate()) {
             formkey.currentState!.save();
             var local = LocalDB();
-            local.Register(name, surname, email, password);
+            local.Register(
+              name,
+              surname,
+              email, /*password*/
+            );
             Navigator.pushNamed(context, 'index');
           }
         },
