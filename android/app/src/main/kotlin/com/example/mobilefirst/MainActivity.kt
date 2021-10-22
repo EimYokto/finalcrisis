@@ -1,4 +1,4 @@
-package com.example.mobilefirst
+package com.example.finalcrisis
 
 import io.flutter.embedding.android.FlutterActivity
 

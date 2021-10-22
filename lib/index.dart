@@ -1,7 +1,7 @@
 import 'package:finalcrisis/provider/google_sing_in.dart';
 import 'package:flutter/material.dart';
 import 'package:finalcrisis/config/constant.dart';
-import 'package:finalcrisis/backend/database.dart';
+
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +13,8 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> {
   var email, password;
-  final formKey = GlobalKey<FormState>();
 
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -26,6 +26,9 @@ class _IndexState extends State<Index> {
             SizedBox(
               height: size.height * 0.04,
             ),
+            SizedBox(
+              height: size.height * 0.04,
+            ),
             Image.asset(
               "asset/images/logo.png",
               width: size.width * 0.2,
@@ -33,6 +36,9 @@ class _IndexState extends State<Index> {
             ),
             SizedBox(
               height: size.height * 0.02,
+            ),
+            SizedBox(
+              height: size.height * 0.04,
             ),
             Text(
               "Smart Heal",
@@ -43,132 +49,67 @@ class _IndexState extends State<Index> {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: size.height * 0.04,
-            ),
             Form(
-              key: formKey,
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     SizedBox(
                       height: size.height * 0.04,
                     ),
-                    Container(
-                      width: size.width * 0.9,
-                      child: TextFormField(
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          hintText: 'Input your email',
-                          filled: true,
-                          fillColor: Color_Grey[200],
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: pColor,
-                            size: size.height * 0.05,
-                          ),
-                          border: OutlineInputBorder(),
-                        ),
-                        onSaved: (value) {
-                          email = value;
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.04,
-                    ),
-                    Container(
-                      width: size.width * 0.9,
-                      child: TextFormField(
-                        style: TextStyle(color: Colors.black, fontSize: 20),
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                          hintText: 'Input your Password',
-                          filled: true,
-                          fillColor: Color_Grey[200],
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: pColor,
-                            size: size.height * 0.05,
-                          ),
-                          border: OutlineInputBorder(),
-                        ),
-                        onSaved: (value) {
-                          password = value;
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.04,
-                    ),
-                    Container(
-                      width: size.width * 0.8,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            textStyle: TextStyle(
-                              fontSize: sFont,
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: new LinearGradient(
+                                  colors: [
+                                    Colors.white10,
+                                    Colors.black,
+                                  ],
+                                  begin: const FractionalOffset(0.0, 0.0),
+                                  end: const FractionalOffset(0.3, 0.3),
+                                  stops: [0.0, 1.0],
+                                  tileMode: TileMode.clamp),
                             ),
-                            primary: pColor,
-                            padding: EdgeInsets.all(15.0),
-                            shape: StadiumBorder()),
-                        child: Text('Login'),
-                        onPressed: () {
-                          formKey.currentState!.save();
-                          // print("$email $password");
-                          var local = LocalDB();
-                          local.Login(email, password).then((value) {
-                            if (value) {
-                              print('success');
-                              Navigator.pushNamed(context, 'dashboard');
-                            } else {
-                              print('fail');
-                              final bar = SnackBar(
-                                content: Text(
-                                  'ไม่พบข้อมูล',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color_white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                backgroundColor: Colors.red[900],
-                              );
-                              ScaffoldMessenger.of(context).showSnackBar(bar);
-                            }
-                          });
-                        },
+                            width: 150.0,
+                            height: 1.0,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  decoration: TextDecoration.none,
+                                  fontSize: 20.0,
+                                  fontFamily: "WorkSansMedium"),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: new LinearGradient(
+                                  colors: [
+                                    Colors.black,
+                                    Colors.white10,
+                                  ],
+                                  begin: const FractionalOffset(0.0, 0.0),
+                                  end: const FractionalOffset(2.0, 2.0),
+                                  stops: [0.0, 2.0],
+                                  tileMode: TileMode.clamp),
+                            ),
+                            width: 150.0,
+                            height: 1.0,
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
-                      height: size.height * 0.04,
-                    ),
-                    Container(
-                      width: size.width * 0.8,
-                      child: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                              textStyle: TextStyle(
-                                fontSize: sFont,
-                              ),
-                              primary: pColor,
-                              padding: EdgeInsets.all(15.0),
-                              shape: StadiumBorder()),
-                          icon: FaIcon(FontAwesomeIcons.sign),
-                          label: Text('   SIGNUP   '),
-                          onPressed: () {
-                            print("สมัครสมาชิก");
-                            Navigator.pushNamed(context, 'register');
-                          }),
+                      height: size.height * 0.03,
                     ),
                     SizedBox(
-                      height: size.height * 0.04,
-                    ),
-                    SizedBox(
-                      height: size.height * 0.04,
+                      height: size.height * 0.03,
                     ),
                     Container(
                       width: size.width * 0.8,

@@ -8,4 +8,4 @@ const sColor = Color(0xFFD5315E);
 const Color_white = Colors.white;
 const Color_Theme = Colors.greenAccent;
 const Color_Grey = Colors.grey;
-const sFont = 32.0;
+const sFont = 25.0;

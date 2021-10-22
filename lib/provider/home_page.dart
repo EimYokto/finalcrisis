@@ -1,6 +1,5 @@
 import 'package:finalcrisis/index.dart';
-import 'package:finalcrisis/screen/dashboard.dart';
-
+import 'package:finalcrisis/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
