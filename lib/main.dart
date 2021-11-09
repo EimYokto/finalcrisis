@@ -2,10 +2,10 @@ import 'package:finalcrisis/config/constant.dart';
 import 'package:finalcrisis/provider/home_page.dart';
 import 'package:finalcrisis/index.dart';
 import 'package:finalcrisis/home.dart';
-import 'package:finalcrisis/screen/routes/image.dart';
-import 'package:finalcrisis/screen/routes/location.dart';
-import 'package:finalcrisis/screen/routes/video.dart';
-import 'screen/routes/profile.dart';
+
+import 'package:finalcrisis/screen/routes/1Introduction/Introduction.dart';
+import 'package:finalcrisis/screen/routes/2favorite/favorite.dart';
+import 'package:finalcrisis/screen/routes/profile/profile1.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -32,11 +32,10 @@ class Myapp extends StatelessWidget {
         ),
         routes: {
           'dashboard': (context) => Dashboard(),
-          "video": (context) => video(),
-          "image": (context) => Images(),
-          "location": (context) => Location(),
+          "Introduction": (context) => Introduction(),
           "index": (context) => Index(),
-          "profile": (context) => profile(),
+          "profile1": (context) => profile1(),
+          "favorite": (context) => favorite(),
         },
         home: HomePage(),
       ),

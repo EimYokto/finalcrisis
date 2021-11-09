@@ -1,9 +1,11 @@
-import 'package:finalcrisis/screen/routes/profile.dart';
-import 'package:finalcrisis/screen/routes/video.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:finalcrisis/config/constant.dart';
+import 'package:finalcrisis/screen/routes/1Introduction/Introduction.dart';
+import 'package:finalcrisis/screen/routes/2favorite/favorite.dart';
+
+import 'package:finalcrisis/screen/routes/profile/profile1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:finalcrisis/provider/google_sing_in.dart';
-import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -14,31 +16,16 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   var data;
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    video(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    profile(),
-  ];
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  final navigationKey = GlobalKey<CurvedNavigationBarState>();
+  int index = 0;
 
+  final screen = [
+    Introduction(),
+    favorite(),
+    Text('3'),
+    Text('4'),
+    profile1(),
+  ];
   // initState เป็น function ที่จะทำงานก่อนการ วาดหน้า
   @override
   void initState() {
@@ -54,46 +41,37 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
     return Container(
-      child: Scaffold(
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.white),
-              label: 'Home',
-              backgroundColor: Colors.green,
-              //backgroundColor: Colors.red,
+      child: SafeArea(
+        top: false,
+        child: Scaffold(
+          extendBody: true,
+          backgroundColor: Color_Theme,
+          body: screen[index],
+          bottomNavigationBar: Theme(
+            data: Theme.of(context).copyWith(
+              iconTheme: IconThemeData(
+                color: Colors.white,
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite, color: Colors.white),
-              label: 'Feed',
-              backgroundColor: Colors.green,
-              //backgroundColor: Colors.green,
+            child: CurvedNavigationBar(
+              key: navigationKey,
+              color: Colors.green,
+              buttonBackgroundColor: Colors.red,
+              backgroundColor: Colors.transparent,
+              animationCurve: Curves.easeInOut,
+              animationDuration: Duration(milliseconds: 300),
+              height: 60,
+              index: index,
+              items: <Widget>[
+                Icon(Icons.home, size: 30),
+                Icon(Icons.favorite, size: 30),
+                Icon(Icons.chat, size: 30),
+                Icon(Icons.question_answer, size: 30),
+                Icon(Icons.person, size: 30),
+              ],
+              onTap: (index) => setState(() => this.index = index),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat, color: Colors.white),
-              label: 'Chat',
-              backgroundColor: Colors.green,
-              //backgroundColor: Colors.purple,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.question_answer, color: Colors.white),
-              label: 'Chat',
-              backgroundColor: Colors.green,
-              //backgroundColor: Colors.pink,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle, color: Colors.white),
-              label: 'person',
-              backgroundColor: Colors.green,
-              //backgroundColor: Colors.pink,
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.white,
-          onTap: _onItemTapped,
+          ),
         ),
       ),
     );
