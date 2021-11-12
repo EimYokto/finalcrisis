@@ -45,15 +45,17 @@ class favorite extends StatelessWidget {
                           fontSize: sFont,
                         ),
                         primary: Color_white,
-                        onPrimary: Colors.red,
+                        onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
                       ),
                       icon: Image.asset(
                         "asset/images/Mad.png",
-                        height: 110,
+                        height: 100,
                       ),
                       label: Text('        เคลียดมั้ย       '),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'stressed');
+                      },
                     ),
                     SizedBox(
                       height: 70 * 0.4,
@@ -64,15 +66,17 @@ class favorite extends StatelessWidget {
                           fontSize: sFont,
                         ),
                         primary: Color_white,
-                        onPrimary: Colors.red,
+                        onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
                       ),
                       icon: Image.asset(
                         "asset/images/—Pngtree—sad mood face expression boy_5950485.png",
-                        height: 110,
+                        height: 100,
                       ),
                       label: Text('          เศร้ามั้ย         '),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'beard');
+                      },
                     ),
                     SizedBox(
                       height: 70 * 0.4,
@@ -83,15 +87,17 @@ class favorite extends StatelessWidget {
                           fontSize: sFont,
                         ),
                         primary: Color_white,
-                        onPrimary: Colors.red,
+                        onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
                       ),
                       icon: Image.asset(
                         "asset/images/—Pngtree—a boy throw tantrum illustration_6832735.png",
-                        height: 110,
+                        height: 100,
                       ),
                       label: Text('          โกรธมั้ย         '),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'angry');
+                      },
                     ),
                   ],
                 )),

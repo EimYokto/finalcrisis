@@ -3,6 +3,7 @@ import 'package:finalcrisis/provider/google_sing_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:finalcrisis/backend/firebaseregister.dart';
 
 class profile1 extends StatefulWidget {
   const profile1({Key? key}) : super(key: key);
@@ -43,7 +44,7 @@ class _profileState extends State<profile1> {
                   CircleAvatar(
                     minRadius: 39,
                     maxRadius: 54,
-                    backgroundImage: NetworkImage(user.photoURL!),
+                    //backgroundImage: NetworkImage(user.photoURL!),
                   ),
                   Text(
                     user.displayName!,
@@ -64,7 +65,7 @@ class _profileState extends State<profile1> {
                 Container(
                   padding: EdgeInsets.only(left: 15, top: 20, right: 15),
                   height: 270,
-                  width: 500 * 0.7,
+                  width: 500 * 0.75,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topRight,
@@ -99,7 +100,7 @@ class _profileState extends State<profile1> {
                       Row(
                         children: [
                           Text(
-                            '  Email: ',
+                            'Email  : ',
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -137,6 +138,7 @@ class _profileState extends State<profile1> {
                           context,
                           listen: false);
                       provider.googleLogout();
+                      //provider.Logout();
                     },
                   ),
                 ),

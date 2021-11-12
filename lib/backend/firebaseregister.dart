@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:flutter/material.dart';
+
 import 'package:finalcrisis/config/constant.dart';
 
 class FirebaseRegister extends StatefulWidget {
@@ -117,6 +119,7 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
         if (formkey.currentState!.validate()) {
           formkey.currentState!.save();
           registerFirebase();
+          setupProfile();
         }
       },
     );
@@ -137,11 +140,10 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
   }
 
   Future<void> setupProfile() async {
-    var user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      await user.updateDisplayName(name);
-      await user.updatePhotoURL("www.google.com");
-    }
+    var user = FirebaseAuth.instance.currentUser!;
+    await user.updateProfile(displayName: name);
+    print(user.displayName);
+    await user.updatePhotoURL("www.google.com");
     print(user);
   }
 
