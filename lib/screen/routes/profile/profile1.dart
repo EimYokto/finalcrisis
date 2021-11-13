@@ -139,6 +139,7 @@ class _profileState extends State<profile1> {
                           listen: false);
                       provider.googleLogout();
                       //provider.Logout();
+                      Navigator.pushNamed(context, 'index');
                     },
                   ),
                 ),

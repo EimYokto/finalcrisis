@@ -21,17 +21,38 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
         appBar: AppBar(
           title: Text("Sign Up"),
         ),
-        body: Form(
-          key: formkey,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                txtName(),
-                txtEmail(),
-                txtPassword(),
-                btnSubmit(),
-              ],
-            ),
+        body: Container(
+          child: ListView(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 50),
+                height: 640,
+                width: 411.4,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color_Theme,
+                      Colors.white,
+                    ],
+                  ),
+                ),
+                child: Form(
+                  key: formkey,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        txtName(),
+                        txtEmail(),
+                        txtPassword(),
+                        btnSubmit(),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
