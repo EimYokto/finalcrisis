@@ -46,6 +46,9 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
                         txtName(),
                         txtEmail(),
                         txtPassword(),
+                        SizedBox(
+                          height: 400 * 0.05,
+                        ),
                         btnSubmit(),
                       ],
                     ),
@@ -64,12 +67,16 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
         style: TextStyle(
-          color: sColor,
+          color: Colors.black,
           fontSize: 24,
         ),
         decoration: InputDecoration(
           labelText: 'Name:',
-          icon: Icon(Icons.approval),
+          icon: Icon(
+            Icons.person,
+            color: pColor,
+            size: 600 * 0.05,
+          ),
           hintText: 'Input your name',
         ),
         validator: (val) {
@@ -89,12 +96,16 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
         style: TextStyle(
-          color: sColor,
+          color: Colors.black,
           fontSize: 24,
         ),
         decoration: InputDecoration(
           labelText: 'Email:',
-          icon: Icon(Icons.email),
+          icon: Icon(
+            Icons.email,
+            color: pColor,
+            size: 600 * 0.05,
+          ),
           hintText: 'Input your email',
         ),
         keyboardType: TextInputType.emailAddress,
@@ -117,12 +128,16 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
       child: TextFormField(
         style: TextStyle(
-          color: sColor,
+          color: Colors.black,
           fontSize: 24,
         ),
         decoration: InputDecoration(
           labelText: 'Password:',
-          icon: Icon(Icons.lock),
+          icon: Icon(
+            Icons.lock,
+            color: pColor,
+            size: 600 * 0.05,
+          ),
           hintText: 'Input your password',
         ),
         obscureText: true,
@@ -134,15 +149,24 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
   }
 
   Widget btnSubmit() {
-    return ElevatedButton(
-      child: Text('Submit'),
-      onPressed: () {
-        if (formkey.currentState!.validate()) {
-          formkey.currentState!.save();
-          registerFirebase();
-          setupProfile();
-        }
-      },
+    return Container(
+      width: 400 * 0.7,
+      height: 650 * 0.08,
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+            side: BorderSide(color: pColor)),
+        color: pColor,
+        textColor: Colors.white,
+        child: Text('Submit', style: TextStyle(fontSize: 20)),
+        onPressed: () {
+          if (formkey.currentState!.validate()) {
+            formkey.currentState!.save();
+            registerFirebase();
+          }
+          Navigator.pushNamed(context, 'index');
+        },
+      ),
     );
   }
 
@@ -153,6 +177,7 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
           .then((response) {
         print(response);
       });
+      setupProfile();
     } catch (e) {
       print(e);
       var error = '${e}';
@@ -162,9 +187,12 @@ class _FirebaseRegisterState extends State<FirebaseRegister> {
 
   Future<void> setupProfile() async {
     var user = FirebaseAuth.instance.currentUser!;
-    await user.updateProfile(displayName: name);
+    await user.updateProfile(
+        displayName: name,
+        photoURL:
+            "https://www.nicepng.com/png/full/136-1366211_group-of-10-guys-login-user-icon-png.png");
     print(user.displayName);
-    await user.updatePhotoURL("www.google.com");
+    //await user.updatePhotoURL("https://picsum.photos/250?image=9");
     print(user);
   }
 

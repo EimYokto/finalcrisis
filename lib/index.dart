@@ -87,7 +87,7 @@ class _IndexState extends State<Index> {
                                   TextStyle(color: Colors.black, fontSize: 20),
                               decoration: InputDecoration(
                                 icon: Icon(
-                                  Icons.alternate_email,
+                                  Icons.email,
                                   color: pColor,
                                   size: size.height * 0.05,
                                 ),
@@ -124,7 +124,7 @@ class _IndexState extends State<Index> {
                             height: size.height * 0.05,
                           ),
                           Container(
-                            width: size.width * 0.8,
+                            width: size.width * 0.7,
                             height: size.height * 0.08,
                             child: RaisedButton(
                               shape: RoundedRectangleBorder(
@@ -139,8 +139,11 @@ class _IndexState extends State<Index> {
                               color: pColor,
                               textColor: Colors.white,
                               child: Text("login".toUpperCase(),
-                                  style: TextStyle(fontSize: 16)),
+                                  style: TextStyle(fontSize: 20)),
                             ),
+                          ),
+                          SizedBox(
+                            height: size.height * 0.03,
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 10.0),
@@ -166,7 +169,7 @@ class _IndexState extends State<Index> {
                                   padding:
                                       EdgeInsets.only(left: 15.0, right: 15.0),
                                   child: Text(
-                                    "Login",
+                                    "Sign In",
                                     style: TextStyle(
                                         color: Colors.black,
                                         decoration: TextDecoration.none,
@@ -195,11 +198,28 @@ class _IndexState extends State<Index> {
                           SizedBox(
                             height: size.height * 0.03,
                           ),
+                          Container(
+                            width: size.width * 0.7,
+                            height: size.height * 0.08,
+                            child: RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  side: BorderSide(color: pColor)),
+                              child: Text('SIGN UP',
+                                  style: TextStyle(fontSize: 20)),
+                              color: pColor,
+                              textColor: Colors.white,
+                              onPressed: () {
+                                print("สมัครสมาชิก");
+                                Navigator.pushNamed(context, 'register');
+                              },
+                            ),
+                          ),
                           SizedBox(
                             height: size.height * 0.03,
                           ),
                           Container(
-                            width: size.width * 0.6,
+                            width: size.width * 0.7,
                             child: ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
                                   textStyle: TextStyle(
@@ -207,8 +227,10 @@ class _IndexState extends State<Index> {
                                   ),
                                   primary: Color_white,
                                   onPrimary: Colors.red,
-                                  padding: EdgeInsets.all(8.0),
-                                  shape: StadiumBorder(),
+                                  padding: EdgeInsets.all(7.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      side: BorderSide(color: Colors.white)),
                                 ),
                                 icon: Image.asset(
                                   'asset/images/btn_google_dark_normal_mdpi.9.png',
@@ -224,22 +246,6 @@ class _IndexState extends State<Index> {
                                   await Navigator.pushNamed(
                                       context, 'dashboard');
                                 }),
-                          ),
-                          Container(
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  textStyle: TextStyle(
-                                    fontSize: sFont,
-                                  ),
-                                  primary: sColor,
-                                  padding: EdgeInsets.all(20.0),
-                                  shape: StadiumBorder()),
-                              child: Text('SIGNUP'),
-                              onPressed: () {
-                                print("สมัครสมาชิก");
-                                Navigator.pushNamed(context, 'register');
-                              },
-                            ),
                           ),
                         ],
                       ),

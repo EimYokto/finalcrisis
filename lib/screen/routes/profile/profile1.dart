@@ -44,7 +44,7 @@ class _profileState extends State<profile1> {
                   CircleAvatar(
                     minRadius: 39,
                     maxRadius: 54,
-                    //backgroundImage: NetworkImage(user.photoURL!),
+                    backgroundImage: NetworkImage(user.photoURL!),
                   ),
                   Text(
                     user.displayName!,
@@ -85,6 +85,9 @@ class _profileState extends State<profile1> {
                             style: TextStyle(
                               fontSize: 20,
                             ),
+                          ),
+                          SizedBox(
+                            height: 400 * 0.02,
                           ),
                           Text(
                             user.uid, //UserId
