@@ -44,7 +44,7 @@ class _IndexState extends State<Index> {
           children: [
             Container(
               padding: EdgeInsets.only(left: 10, top: 10, right: 10),
-              height: 700,
+              height: 730,
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -237,19 +237,13 @@ class _IndexState extends State<Index> {
                                   height: 48.0,
                                 ),
                                 label: Text('google   '),
-                                onPressed: () async {
+                                onPressed: () {
                                   print("google");
-                                  try {
-                                    final provider =
-                                        Provider.of<GoogleSignInProvider>(
-                                            context,
-                                            listen: false);
-                                    await provider.googleLogin();
-                                    await Navigator.pushNamed(
-                                        context, 'dashboard');
-                                  } catch (e) {
-                                    Navigator.pushNamed(context, 'index');
-                                  }
+
+                                  final provider =
+                                      Provider.of<GoogleSignInProvider>(context,
+                                          listen: false);
+                                  provider.googleLogin();
                                 }),
                           ),
                         ],

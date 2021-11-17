@@ -29,8 +29,16 @@ class _chat3State extends State<chat3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color_Theme,
+      backgroundColor: Colors.greenAccent[400],
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Chat App',
+          style: TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -70,20 +78,6 @@ class _chat3State extends State<chat3> {
                                   Text('${snapshot.value['message']}'),
                                 ],
                               ),
-                              /*trailing: Column(
-                              children: [
-                                Expanded(
-                                  child: IconButton(
-                                    icon: Icon(Icons.delete),
-                                    onPressed: () {
-                                      print(snapshot.key);
-                                      //ลบ ข้อมูลใน  db
-                                      dbfirebase.child(snapshot.key!).remove();
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),*/
                             ),
                           ),
                         ),

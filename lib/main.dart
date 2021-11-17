@@ -2,8 +2,7 @@ import 'package:finalcrisis/config/constant.dart';
 import 'package:finalcrisis/provider/home_page.dart';
 import 'package:finalcrisis/index.dart';
 import 'package:finalcrisis/home.dart';
-import 'package:finalcrisis/screen/routes/1Introduction/DetailAudioPage.dart';
-import 'package:finalcrisis/screen/routes/1Introduction/music_therapy.dart';
+import 'package:finalcrisis/screen/routes/1Introduction/music_therapy/music_therapy.dart';
 
 import 'package:finalcrisis/screen/routes/2favorite/angry.dart';
 import 'package:finalcrisis/screen/routes/2favorite/beard.dart';
@@ -39,6 +38,7 @@ class Myapp extends StatelessWidget {
           primarySwatch: Colors.green,
         ),
         routes: {
+          "HomePage": (context) => HomePage(),
           "dashboard": (context) => Dashboard(),
           "index": (context) => Index(),
           "profile1": (context) => profile1(),

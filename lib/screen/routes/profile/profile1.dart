@@ -1,5 +1,6 @@
 import 'package:finalcrisis/config/constant.dart';
 import 'package:finalcrisis/provider/google_sing_in.dart';
+import 'package:finalcrisis/provider/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -64,9 +65,10 @@ class _profileState extends State<profile1> {
               child: Column(children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(left: 15, top: 20, right: 15),
-                  height: 270,
+                  height: 250,
                   width: 500 * 0.75,
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
                     gradient: LinearGradient(
                       begin: Alignment.topRight,
                       end: Alignment.bottomLeft,
@@ -78,49 +80,72 @@ class _profileState extends State<profile1> {
                   ),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            'UserID: ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
+                      Form(
+                        child: SingleChildScrollView(
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: 10, top: 10, right: 10),
+                                height: 0,
+                                width: 20 * 0.75,
+                              ),
+                              Text(
+                                'UserID: ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 400 * 0.02,
+                              ),
+                              Text(
+                                user.uid, //UserId
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            height: 400 * 0.02,
-                          ),
-                          Text(
-                            user.uid, //UserId
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                       SizedBox(
                         height: 400 * 0.02,
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            'Email  : ',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
+                      Form(
+                        child: SingleChildScrollView(
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.only(
+                                    left: 15, top: 10, right: 15),
+                                height: 0,
+                                width: 20 * 0.75,
+                              ),
+                              Text(
+                                'Email  : ',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              Text(
+                                user.email!, //email
+                                style: TextStyle(
+                                  fontSize: 19,
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            user.email!, //email
-                            style: TextStyle(
-                              fontSize: 19,
-                            ),
-                          ),
-                        ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 400 * 0.02,
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 50 * 0.5,
+                  height: 90 * 0.5,
                 ),
                 Container(
                   width: 400 * 0.8,
@@ -132,6 +157,9 @@ class _profileState extends State<profile1> {
                       primary: Color_white,
                       onPrimary: Colors.red,
                       padding: EdgeInsets.all(15.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          side: BorderSide(color: Colors.white)),
                     ),
                     icon: Icon(Icons.logout, color: Colors.red),
                     label: Text('Logout'),
@@ -140,9 +168,9 @@ class _profileState extends State<profile1> {
                       final provider = Provider.of<GoogleSignInProvider>(
                           context,
                           listen: false);
+
                       provider.googleLogout();
-                      //provider.Logout();
-                      Navigator.pushNamed(context, 'index');
+                      Navigator.pushNamed(context, 'HomePage');
                     },
                   ),
                 ),
