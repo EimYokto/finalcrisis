@@ -1,7 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:finalcrisis/config/constant.dart';
 import 'package:finalcrisis/screen/routes/1Introduction/Introduction.dart';
+//import 'package:finalcrisis/screen/routes/1Introduction/1/Introduction.dart';
 import 'package:finalcrisis/screen/routes/2favorite/favorite.dart';
+import 'package:finalcrisis/screen/routes/3ChatApp/chat3.dart';
 
 import 'package:finalcrisis/screen/routes/profile/profile1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,20 +24,10 @@ class _DashboardState extends State<Dashboard> {
   final screen = [
     Introduction(),
     favorite(),
-    Text('3'),
+    chat3(),
     Text('4'),
     profile1(),
   ];
-  // initState เป็น function ที่จะทำงานก่อนการ วาดหน้า
-  @override
-  void initState() {
-    super.initState();
-    callActivity();
-  }
-
-  Future<void> callActivity() async {
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {

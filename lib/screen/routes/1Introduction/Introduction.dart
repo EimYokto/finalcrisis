@@ -1,3 +1,6 @@
+import 'package:finalcrisis/config/constant.dart';
+import 'package:finalcrisis/screen/routes/1Introduction/audiobook.dart';
+import 'package:finalcrisis/screen/routes/1Introduction/music_therapy.dart';
 import 'package:flutter/material.dart';
 
 class Introduction extends StatelessWidget {
@@ -5,69 +8,45 @@ class Introduction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      /*appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),*/
-      body: Column(
-        children: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset(
-                "asset/images/Untitled-51.png",
-                height: 275,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    "smart Heal",
-                    style: TextStyle(
-                      fontSize: 45,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              )
-            ],
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Smart Heal",
+            style: TextStyle(fontSize: 35),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 45,
-            ),
-            child: Row(
-              children: [
-                Text(
-                  "รายการ",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+          backgroundColor: Colors.greenAccent[400],
+          elevation: 0,
+          bottom: TabBar(
+              labelColor: Colors.redAccent,
+              unselectedLabelColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  color: Colors.white),
+              tabs: [
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("audio book"),
                   ),
                 ),
-                Spacer(),
-                FlatButton(
-                  onPressed: () => {
-                    print("123"),
-                  },
-                  child: Text(
-                    'ทั้งหมด',
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("music therapy"),
                   ),
-                )
-              ],
-            ),
-          )
-        ],
+                ),
+              ]),
+        ),
+        body: TabBarView(children: [
+          audiobook(),
+          music_therapy(),
+        ]),
       ),
     );
   }

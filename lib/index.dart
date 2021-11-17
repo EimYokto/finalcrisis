@@ -239,12 +239,17 @@ class _IndexState extends State<Index> {
                                 label: Text('google   '),
                                 onPressed: () async {
                                   print("google");
-                                  final provider =
-                                      Provider.of<GoogleSignInProvider>(context,
-                                          listen: false);
-                                  await provider.googleLogin();
-                                  await Navigator.pushNamed(
-                                      context, 'dashboard');
+                                  try {
+                                    final provider =
+                                        Provider.of<GoogleSignInProvider>(
+                                            context,
+                                            listen: false);
+                                    await provider.googleLogin();
+                                    await Navigator.pushNamed(
+                                        context, 'dashboard');
+                                  } catch (e) {
+                                    Navigator.pushNamed(context, 'index');
+                                  }
                                 }),
                           ),
                         ],
