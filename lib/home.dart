@@ -4,6 +4,7 @@ import 'package:finalcrisis/screen/routes/1Introduction/Introduction.dart';
 //import 'package:finalcrisis/screen/routes/1Introduction/1/Introduction.dart';
 import 'package:finalcrisis/screen/routes/2favorite/favorite.dart';
 import 'package:finalcrisis/screen/routes/3ChatApp/chat3.dart';
+import 'package:finalcrisis/screen/routes/4cellPhone/cellPhone.dart';
 
 import 'package:finalcrisis/screen/routes/profile/profile1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,7 +26,7 @@ class _DashboardState extends State<Dashboard> {
     Introduction(),
     favorite(),
     chat3(),
-    Text('4'),
+    cellApp(),
     profile1(),
   ];
 

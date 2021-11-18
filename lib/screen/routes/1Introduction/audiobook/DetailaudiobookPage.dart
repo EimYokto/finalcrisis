@@ -77,7 +77,7 @@ class _DetailaudiobookPageState extends State<DetailaudiobookPage> {
                     height: screenWidth * 0.15,
                   ),
                   Text(
-                    "THE WATER CURE",
+                    "เราเป็นผู้ใหญ่แล้วหรือยัง",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -85,9 +85,9 @@ class _DetailaudiobookPageState extends State<DetailaudiobookPage> {
                     ),
                   ),
                   Text(
-                    "Martin Hyatt",
+                    "หนังสือเสียง เล่าให้ฟัง by ณหนวด",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                     ),
                   ),
                   AudioFile(advancedPlayer: audvancedPlayer),

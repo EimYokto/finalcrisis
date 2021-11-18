@@ -78,7 +78,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                     height: screenWidth * 0.15,
                   ),
                   Text(
-                    "THE WATER CURE",
+                    "ดนตรีบำบัดความเครียด",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                     ),
                   ),
                   Text(
-                    "Martin Hyatt",
+                    "Jz knowledge",
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -140,7 +140,7 @@ class AudioFile extends StatefulWidget {
 class _AudioFileState extends State<AudioFile> {
   Duration _duration = Duration();
   Duration _position = Duration();
-  final String path = "https://luan.xyz/files/audio/nasa_on_a_mission.mp3";
+  final String path = "https://luan.xyz/files/audio/ambient_c_motion.mp3";
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;

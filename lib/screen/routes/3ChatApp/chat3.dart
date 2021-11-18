@@ -103,7 +103,6 @@ class _chat3State extends State<chat3> {
                         filled: true,
                         fillColor: Colors.white,
                         isCollapsed: false,
-                        hintText: '',
                         suffixIcon: FlatButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {

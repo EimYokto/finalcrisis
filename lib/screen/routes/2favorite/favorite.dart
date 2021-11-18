@@ -1,4 +1,5 @@
 import 'package:finalcrisis/config/constant.dart';
+import 'package:finalcrisis/screen/routes/2favorite/stressed/stressed.dart';
 import 'package:flutter/material.dart';
 
 class favorite extends StatefulWidget {
@@ -35,8 +36,7 @@ class _favoriteState extends State<favorite> {
                     Text(
                       'แบบประเมิน',
                       style: TextStyle(
-                        fontSize: 45,
-                        color: Colors.black,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
@@ -52,6 +52,9 @@ class _favoriteState extends State<favorite> {
                         primary: Color_white,
                         onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white)),
                       ),
                       icon: Image.asset(
                         "asset/images/Mad.png",
@@ -59,7 +62,10 @@ class _favoriteState extends State<favorite> {
                       ),
                       label: Text('        เคลียดมั้ย       '),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'stressed');
+                        Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                                builder: (context) => stressed()));
                       },
                     ),
                     SizedBox(
@@ -73,6 +79,9 @@ class _favoriteState extends State<favorite> {
                         primary: Color_white,
                         onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white)),
                       ),
                       icon: Image.asset(
                         "asset/images/—Pngtree—sad mood face expression boy_5950485.png",
@@ -94,6 +103,9 @@ class _favoriteState extends State<favorite> {
                         primary: Color_white,
                         onPrimary: Colors.black,
                         padding: EdgeInsets.all(15.0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            side: BorderSide(color: Colors.white)),
                       ),
                       icon: Image.asset(
                         "asset/images/—Pngtree—a boy throw tantrum illustration_6832735.png",

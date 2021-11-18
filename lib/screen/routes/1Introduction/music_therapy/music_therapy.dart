@@ -68,7 +68,7 @@ class music extends StatelessWidget {
           size: 50,
         ),
         title: Text(
-          'เราเป็นผู้ใหญ่แล้วหรือยัง',
+          'ดนตรีบำบัดความเครียด',
         ),
         subtitle: Row(
           children: [
@@ -80,7 +80,7 @@ class music extends StatelessWidget {
             SizedBox(
               width: 2 * 3.5,
             ),
-            Text('หนังสือเสียง เล่าให้ฟัง by ณหนวด'),
+            Text('Jz knowledge'),
           ],
         ),
         onTap: () {

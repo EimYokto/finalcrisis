@@ -18,7 +18,7 @@ class _profileState extends State<profile1> {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
-      backgroundColor: Colors.white30,
+      backgroundColor: Colors.grey[300],
       body: Column(
         children: <Widget>[
           ClipPath(
