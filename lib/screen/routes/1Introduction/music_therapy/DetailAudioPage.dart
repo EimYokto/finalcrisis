@@ -1,6 +1,5 @@
 //import 'package:audioplayers/audioplayers.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DetailAudioPage extends StatefulWidget {
@@ -115,7 +114,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.white, width: 2),
                     image: DecorationImage(
-                      image: AssetImage("asset/images/Capture.PNG"),
+                      image: AssetImage("asset/images/home.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -140,7 +139,8 @@ class AudioFile extends StatefulWidget {
 class _AudioFileState extends State<AudioFile> {
   Duration _duration = Duration();
   Duration _position = Duration();
-  final String path = "https://luan.xyz/files/audio/ambient_c_motion.mp3";
+  final String path =
+      "https://firebasestorage.googleapis.com/v0/b/final-crisis-156c1.appspot.com/o/%E0%B8%94%E0%B8%99%E0%B8%95%E0%B8%A3%E0%B8%B5%E0%B8%9A%E0%B8%B3%E0%B8%9A%E0%B8%B1%E0%B8%94%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%94.mp3?alt=media&token=3d62fb41-373c-40f5-8016-d1492f235d84";
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;

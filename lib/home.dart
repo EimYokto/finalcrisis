@@ -59,7 +59,7 @@ class _DashboardState extends State<Dashboard> {
                 Icon(Icons.home, size: 30),
                 Icon(Icons.favorite, size: 30),
                 Icon(Icons.chat, size: 30),
-                Icon(Icons.question_answer, size: 30),
+                Icon(Icons.phone, size: 30),
                 Icon(Icons.person, size: 30),
               ],
               onTap: (index) => setState(() => this.index = index),
